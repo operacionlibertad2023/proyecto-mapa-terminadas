@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqc2jhqavdp3t"]
+
+[ext_resource type="Texture2D" uid="uid://uga5dmfp8igk" path="res://assets/caja.png" id="1_bbuj2"]
+[ext_resource type="Script" path="res://Area2D.gd" id="2_c1ysu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r80ro"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_womdp"]
+size = Vector2(25, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sxls"]
+size = Vector2(101.5, 79)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_r80ro")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bbuj2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_womdp")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_c1ysu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_7sxls")
